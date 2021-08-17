@@ -11,19 +11,19 @@
   </div>
 
   <h3><strong>新着商品</strong></h3>
-  
+  <% @products.each do |product| %>
     <div class="card" style="width: 15rem;">
-      <!--<img src="..." class="card-img-top" alt="...">ここに写真を入れる-->
+      <%= attachment_image_tag product,:image, size:"100x100", fallback: "no_image.jpg" %>
       <div class="card-body">
         <p class="card-title">
-          商品名
+          <%= product.name %>
         </p>
         <p class="card-text">
-          ¥値段
+          ¥<%= product.price %>
         </p>
       </div>
     </div>
-
+    <% end %>
   </div>
 
   <div>
