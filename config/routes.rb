@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
-  devise_for :admins
-  devise_for :customers
+  devise_for :admins, controllers: {
+  sessions:      'admins/sessions',
+  passwords:     'admins/passwords',
+  registrations: 'admins/registrations'
+}
+  devise_for :customers, controllers: {
+  sessions:      'customers/sessions',
+  passwords:     'customers/passwords',
+  registrations: 'customers/registrations'
+}
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   scope module: :customer do
     root to: "homes#top"
@@ -18,10 +26,11 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
+    root to: "homes#top"
     resources :products, only: [:index, :new, :create, :show, :edit, :update]
-    resources :genres, only: [:index, :new, :create, :edit, :update]
+    resources :genres, only: [:index, :create, :edit, :update]
     resources :customers, only: [:index, :show, :edit, :update]
-    resources :orders, only: [:index, :show, :update] do
+    resources :orders, only: [ :show, :update] do
       patch "order_products/:id" => "order_products#update"
     end
   end
