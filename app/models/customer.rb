@@ -4,4 +4,12 @@ class Customer < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
          
+  #ログインする時に退会済み(is_deleted==true)のユーザーを弾くためのメソッド
+  def active_for_authentication?
+    super && (self.is_deleted == false)
+  end
+  
+  has_many :cart_products, dependent: :destroy
+         
+         
 end
