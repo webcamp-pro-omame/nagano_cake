@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   registrations: 'customers/registrations'
 }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  scope module: :customer do
+  scope module: :customers do
     root to: "homes#top"
     get "about" => "homes#about"
     resources :products, only: [:show, :index]
@@ -25,7 +25,7 @@ Rails.application.routes.draw do
     resources :shipping_addresses, only: [:index, :create, :edit, :update, :destroy]
   end
 
-  namespace :admin do
+  namespace :admins do
     root to: "homes#top"
     resources :products, only: [:index, :new, :create, :show, :edit, :update]
     resources :genres, only: [:index, :create, :edit, :update]
