@@ -1,0 +1,30 @@
+<script src="https://kit.fontawesome.com/8a2ca55f79.js" crossorigin="anonymous"></script>
+
+<h1>商品一覧</h1>
+
+<%= link_to new_admin_product do %>
+  <i class="fas fa-plus-circle"></i>
+<% end %>
+
+<table class='table'>
+  <thead>
+    <tr>
+      <th>商品ID</th>
+      <th>商品名</th>
+      <th>税抜価格</th>
+      <th>ジャンル</th>
+      <th>ステータス</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <td><%= product.id %></td>
+        <td><%= product.name %></td>
+        <td><%= product.price %></td>
+        <td><%= product.genre %></td>
+        <td><%= product.status %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
