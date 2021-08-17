@@ -4,11 +4,7 @@ Rails.application.routes.draw do
   passwords:     'admins/passwords',
   registrations: 'admins/registrations'
 }
-  devise_for :customers, controllers: {
-  sessions:      'customers/sessions',
-  passwords:     'customers/passwords',
-  registrations: 'customers/registrations'
-}
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   scope module: :customers do
     root to: "homes#top"
@@ -19,11 +15,18 @@ Rails.application.routes.draw do
     resources :orders, only: [:new, :index, :show, :create]
     post "orders/confirm" => "orders#confirm"
     get "orders/thanks" => "orders#thanks"
-    resources "customers", only: [:show, :edit, :update]
+    resource "customers", only: [:show, :edit, :update]
+    
     get "customers/unsubscribe" => "customers#unsubscribe"
     patch "customers/withdraw" => "customers#withdraw"
     resources :shipping_addresses, only: [:index, :create, :edit, :update, :destroy]
   end
+  
+ devise_for :customers, controllers: {
+  sessions:      'customers/sessions',
+  passwords:     'customers/passwords',
+  registrations: 'customers/registrations'
+}
 
   namespace :admins do
     root to: "homes#top"
