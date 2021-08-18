@@ -1,16 +1,16 @@
-<h1>商品新規登録</h1>
-<%= form_with model: @product, url: "/admin/products/:id", local:true do |f| %>
+<h1>商品編集</h1>
+<%= form_with model:@product, url: admins_product_path, local:true do |f| %>
   <h4>商品画像</h4>
   <%= f.attachment_field :image %>
   <h4>商品名</h4>
-  <%= f.text_field :title %>
+  <%= f.text_field :name %>
   <h4>商品説明</h4>
   <%= f.text_area :detail %>
   <h4>ジャンル</h4>
-  <%= f.collection_select(:genre, @genres, :id, :name, {prompt: "選択してください"}) %>
+  <%= f.collection_select(:genre, Genre.all, :id, :name, {prompt: "選択してください"}) %>
   <h4>税抜価格</h4>
   <%= f.text_field :price %>円
   <h4>販売ステータス</h4>
-  <%= f.radio_button :status, "販売中" %>販売中 <%= form.radio_button :status, "販売停止中" %>販売停止中
+  <%= f.radio_button :status, "販売中" %>販売中 <%= f.radio_button :status, "販売停止中" %>販売停止中
   <%= f.submit '変更を保存', class: 'btn btn-success' %>
 <% end %>
