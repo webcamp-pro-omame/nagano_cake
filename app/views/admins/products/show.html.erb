@@ -1,7 +1,7 @@
 <h2>商品詳細</h2>
 
 <table class='table'>
-  <tr><%= attachment_image_tag(product, :image, :fill, 500, 500, fallback: "no_image.jpg") %></tr>
+  <tr><%= attachment_image_tag(@product, :image, :fill, 200,200, fallback: "no_image.jpg") %></tr>
   <tr>
 	  <th>商品名</th>
 	  <td><%= @product.name %></td>
@@ -12,7 +12,7 @@
   </tr>
   <tr>
 	  <th>ジャンル</th>
-	  <td><%= @product.genre %></td>
+	  <td><%= @product.genre.name %></td>
   </tr>
   <tr>
 	  <th>税込価格（税抜価格）</th>
@@ -23,6 +23,6 @@
 	  <th><%= @product.status %></th>
   </tr>
   <tr>
-    <th><%= link_to "編集する" , edit_admin_product_path(product.id), class: 'btn btn-success' %></th>
+    <th><%= link_to "編集する" , edit_admins_product_path(@product.id), class: 'btn btn-success' %></th>
   </tr>
 </table>
