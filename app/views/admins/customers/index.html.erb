@@ -17,9 +17,15 @@
           <% @customers.each do |customer| %>
           <tr>
             <td><%= customer.id %></td>
-            <td><%= link_to "#{customer.first_name} + #{customer.last_name}", admins_customer_path(customer.id) %></td>
+            <td><%= link_to "#{customer.last_name} #{customer.first_name}", admins_customer_path(customer.id), class: "text-dark border-bottom border-dark" %></td>
             <td><%= customer.email %></td>
-            <td><%= customer.is_valid %></td>
+            <td>
+              <% if customer.is_valid = true %>
+                <p class="text-success">有効</p>
+              <% else %>
+                <p class="text-secondary">退会</p>
+              <% end %>
+            </td>
           </tr>
           <% end %>
           <%= paginate @customers %>
