@@ -5,6 +5,7 @@ class Admins::ProductsController < ApplicationController
 
   def new
     @product = Product.new
+    @genres = Genre.all
   end
 
   def create
@@ -29,6 +30,6 @@ class Admins::ProductsController < ApplicationController
 
   private
   def product_params
-    params.require(:product).params(:image,:title,:detail,:genre,:price,:status)
+    params.require(:product).permit(:image_id, :name, :detail, :genre_id, :price, :status)
   end
 end
