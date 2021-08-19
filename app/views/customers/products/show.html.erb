@@ -16,18 +16,21 @@
             <p class="card-text">
               ¥<%= @product.price %>(税込)
             </p>
-            
-            <%= form_with model:cart_products, local:true do |f|%>
-              <%= f.hidden_field :product_id, value: @product.id %>
-              <select class="form-select" aria-label="Default select example">
-                <option selected>個数選択</option>
-                <%= f.select_tag :amount, options_for_select((1..10).to_a) %>
-              </select>
-              <%= f.submit 'カートに入れる', class:"btn btn-success" %>
-            <% end %>
           </div>
         </div>
       </div>
     </div>
+    
+    <div>
+      <%= form_with model:cart_products, local:true do |f|%>
+        <%= f.hidden_field :product_id, value: @product.id %>
+        <select class="form-select" aria-label="Default select example">
+          <option selected>個数選択</option>
+          <%= f.select_tag :amount, options_for_select((1..10).to_a) %>
+        </select>
+        <%= f.submit 'カートに入れる', class:"btn btn-success" %>
+      <% end %>
+    </div>
+    
   </div>
 </div>
