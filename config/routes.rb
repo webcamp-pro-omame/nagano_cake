@@ -16,14 +16,14 @@ Rails.application.routes.draw do
     resources :products, only: [:show, :index]
     resources :cart_products, only: [:index, :update, :destroy, :create]
     delete "cart_products/destroy_all" => "cart_products#destroy_all"
-    
+
     resource "customers", only: [:show, :edit, :update]
-    
+
     get "customers/unsubscribe" => "customers#unsubscribe"
     patch "customers/withdraw" => "customers#withdraw"
     resources :shipping_addresses, only: [:index, :create, :edit, :update, :destroy]
   end
-  
+
  devise_for :customers, controllers: {
   sessions:      'customers/sessions',
   passwords:     'customers/passwords',
