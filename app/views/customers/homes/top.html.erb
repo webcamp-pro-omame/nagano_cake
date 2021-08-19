@@ -1,5 +1,5 @@
-<div class = "container">
-  <div class = "row">
+<div class="container">
+  <div class="row">
     <%= flash[:alert] %>
     <div class="col-md-12 mx-auto">
         <div class="main-visual">
@@ -15,7 +15,7 @@
     </div>
   </div>
   
-  <div class = "row">
+  <div class="row">
     <div class="col-md-12 mx-auto">
       <h3><strong>新着商品</strong></h3>
       <% @products.each do |product| %>
@@ -26,7 +26,8 @@
               <%= product.name %>
             </p>
             <p class="card-text">
-              ¥<%= product.price %>
+              <% tax_in = product.price * 1.10 %>
+                ¥ <%= tax_in.round %>
             </p>
           </div>
         </div>

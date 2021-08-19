@@ -1,29 +1,3 @@
 // Place all the styles related to the customers/homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
-.main-visual {
-  width: 100%;
-  height: 300px;
-  background-image: url(/images/img1.jpg);
-  background-size: cover;
-  object-fit: fill;
-  background-position: bottom center;
-}
-.main-visual-content {
-  width: 30%;
-  height: 300px;
-  background-color: #f0e3be;
-  text-align: center;
-  padding-top: 105px;
-  color: #fff;
-}
-
-.about-image {
-  width: 100%;
-  height: 300px;
-  background-image: url(/images/img2.jpg);
-  background-size: cover;
-  object-fit: fill;
-  background-position: bottom center;
-}

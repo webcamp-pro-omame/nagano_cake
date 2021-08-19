@@ -1,28 +1,30 @@
-<div class = "container">
-  <div class = "row">
-    <div class = "col md-12">
+<div class="container">
+  <div class="row">
+    <div class="col md-12">
       <h3>商品一覧</h3>(全<%= @products.count %>件)
     </div>
   </div>
 </div>
 
-<div class = "container">
-  <div class ="row">
-    <div class = "col md-12">
-      <% @products.each do |product| %>
-        <div class="card" style="width: 15rem;">
-          <%= attachment_image_tag product,:image, size:"100x100", fallback: "no_image.jpg" %>
-          <div class="card-body">
-            <p class="card-title">
-              <%= product.name %>
-            </p>
-            <p class="card-text">
-              ¥<%= product.price %>
-            </p>
-          </div>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  <div class="col">
+    <% @products.each do |product| %>
+      <div class="card">
+        <%= link_to product_path(product.id) do %>
+          <%= attachment_image_tag product,:image, size:"200x150", fallback: "no_image.jpg" %>
+        <% end %>
+        <div class="card-body">
+          <h5 class="card-title">
+            <%= product.name %>
+          </h5>
+          <p class="card-text">
+            <% tax_in = product.price * 1.10 %>
+              ¥ <%= tax_in.round %>
+          </p>
         </div>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
   </div>
 </div>
+
 <%= paginate @products %>
