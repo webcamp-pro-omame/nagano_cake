@@ -14,8 +14,9 @@ Rails.application.routes.draw do
     get "orders/thanks" => "orders#thanks"
     resources :orders, only: [:index, :show, :create]
     resources :products, only: [:show, :index]
-    resources :cart_products, only: [:index, :update, :destroy, :create]
     delete "cart_products/destroy_all" => "cart_products#destroy_all"
+    resources :cart_products, only: [:index, :update, :destroy, :create]
+
 
     resource "customers", only: [:show, :edit, :update]
 
