@@ -11,7 +11,7 @@ class Admins::ProductsController < ApplicationController
   def create
     product = Product.new(product_params)
     product.genre_id = params[:product][:genre].to_i
-    product.save!
+    product.save
     redirect_to admins_product_path(product)
   end
 

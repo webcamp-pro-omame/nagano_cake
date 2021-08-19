@@ -1,1 +1,60 @@
-<h1>confirm</h1>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+          <h2 class="mb-5 login-color col-3 text-center ml-5">注文情報確認</h2>
+          
+          <div class="row">
+            <table class="table table-bordered border-dark col-7">
+            <thead>
+              <tr>
+                  <th class="table-active col-3">商品名</th>
+                  <th class="table-active">単価(税込)</th>
+                  <th class="table-active">数量</th>
+                  <th class="table-active">小計</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+              <tr>
+                  <td>ここは</td>
+                  <td>カートプロダクト</td>
+                  <td>できてからだね</td>
+                  <td>ですね</td>
+              </tr>
+              
+            </tbody>
+           </table>
+          
+           <table class="table table-bordered border-dark col-2 mb-3 ml-5 h-75">
+              <tr>
+                  <th class="table-active">送料</th>
+                  <td>800</td>
+              </tr>
+              <tr>
+                  <th class="table-active">商品合計</th>
+                  <td>金額</td>
+              </tr>
+              <tr>
+                  <th class="table-active">請求金額</th>
+                  <td>ここも</td>
+              </tr>
+           </table>
+        </div>
+          
+          
+          <div class="payment_info row mt-3 mb-3">
+              <h5 class="font-weight-bold">支払方法　　</h5>
+              <%= @order.payment_method %>
+              <br>
+          </div>
+         
+          <div class="address_info row mb-3">
+              <h5 class="font-weight-bold">お届け先　　</h5>
+              <span>〒</span><%= @order.postcode %>　<%= @order.address %><br><%= @order.name %>
+              <br>
+          </div>  
+      </div>
+    </div>
+  </div>
+</body>
