@@ -17,13 +17,13 @@ class Customers::CartProductsController < ApplicationController
   end
 
   def destroy_all
-    @cart_products = CartProduct.all
+    @cart_products = current_customer.cart_products
     @cart_products.destroy_all
     redirect_to cart_products_path
   end
 
   def create
-    @cart_product = CartProduct.new(cart_product_params)
+    @cart_product = current_customer.cart_products.new(cart_product_params)
     @cart_product.save
     redirect_to cart_products_path
   end

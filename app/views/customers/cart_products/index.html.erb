@@ -15,6 +15,7 @@
             </thead>
 
             <tbody>
+              <% @sum = 0 %>
               <% @cart_products.each do |cart_product| %>
                 <tr>
                   <td><%= cart_product.product.name %></td>
@@ -33,6 +34,7 @@
                     <%= link_to "削除する", cart_product_path(cart_product), method: :delete, class:"btn btn-sm btn-danger" %>
                   </td>
                 </tr>
+              <% @sum += tax_in * cart_product.amount %>
               <% end %>
             </tbody>
           </table>
@@ -47,11 +49,7 @@
         <tr>
           <th>合計金額</th>
           <td>
-            <% @sum = 0 %>
-            <% @cart_products.each do |product| %>
-              <% @sum += product.product.price %>
-            <% end %>
-            <%= @sum %>
+            ¥<%= @sum %>
           </td>
         </tr>
       </table>
