@@ -54,11 +54,10 @@ class Customers::OrdersController < ApplicationController
         
         
         #@order.save
-        
        redirect_to orders_thanks_path
-        
-        
-        
+       
+       
+       
     end
     
     

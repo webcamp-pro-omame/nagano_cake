@@ -1,10 +1,16 @@
  <div class="container">
    <div class="row">
       <div class="col">
-        <h4 class="mb-5 cart-color col-3 text-center">ショッピングカート</h4>
+        <h4 class="mb-4 cart-color col-3 text-center">ショッピングカート</h4>
+        <div class="text-right mb-1">
           <%= link_to 'カートを空にする', cart_products_destroy_all_path, method: :delete, class:'btn btn-danger' %>
-          <table class="table table-hover table-inverse">
-            <thead>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+          <table class="table table-bordered">
+            <thead class="table-light">
               <tr>
                 <th>商品名</th>
                 <th>単価(税込)</th>
@@ -18,10 +24,13 @@
               <% @sum = 0 %>
               <% @cart_products.each do |cart_product| %>
                 <tr>
-                  <td><%= cart_product.product.name %></td>
+                  <td>
+                    <%= attachment_image_tag cart_product.product, :image, size:"60x50", fallback: "no_image.jpg" %>
+                    <%= cart_product.product.name %>
+                  </td>
                   <td>
                     <% tax_in = cart_product.product.add_tax_price %>
-                      ¥ <%= tax_in %>(税込)
+                      <%= tax_in.to_s(:delimited) %>
                   </td>
                   <td>
                     <%= form_with model:cart_product, local:true do |f|%>
@@ -29,12 +38,15 @@
                       <%= f.submit '変更', class:"btn btn-success" %>
                     <% end %>
                   </td>
-                  <td><%= tax_in * cart_product.amount %></td>
+                  <td>
+                    <% @subtotal = tax_in * cart_product.amount %>
+                    <%= @subtotal.to_s(:delimited) %>
+                  </td>
                   <td>
                     <%= link_to "削除する", cart_product_path(cart_product), method: :delete, class:"btn btn-sm btn-danger" %>
                   </td>
                 </tr>
-              <% @sum += tax_in * cart_product.amount %>
+                <% @sum += @subtotal %>
               <% end %>
             </tbody>
           </table>
@@ -44,12 +56,11 @@
    <div class = "row">
      <div class = "col">
        <%= link_to '買い物を続ける', root_path, class:'btn btn-primary' %>
-
-       <table class="table table-hover table-inverse">
+       <table align="right" class="table table-bordered col-2">
         <tr>
-          <th>合計金額</th>
+          <td>合計金額</td>
           <td>
-            ¥<%= @sum %>
+            ¥<%= @sum.to_s(:delimited) %>
           </td>
         </tr>
       </table>
@@ -57,7 +68,7 @@
    </div>
 
    <div class = "row">
-     <div class = "col">
+     <div class = "col text-center">
        <%= link_to '情報入力に進む', orders_new_path, class:'btn btn-success' %>
      </div>
    </div>

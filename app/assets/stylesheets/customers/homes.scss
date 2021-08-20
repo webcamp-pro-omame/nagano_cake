@@ -1,3 +1,14 @@
 // Place all the styles related to the customers/homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.image1 {
+  background-image: url(/images/img1.jpg);
+}
+.image2 {
+  background-image: url(images/img2.jpg);
+}
+
+#container{
+  height: 500px;
+}

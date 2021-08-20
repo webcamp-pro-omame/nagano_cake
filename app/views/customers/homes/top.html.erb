@@ -2,41 +2,53 @@
   <div class="row">
     <%= flash[:alert] %>
     <div class="col-md-12 mx-auto">
-        <div class="main-visual">
-          <div class="main-visual-content">
+        <!--<div class="main-visual">-->
+        <!--  <div class="main-visual-content">-->
+        <div id="container">
+          <div id="theTarget">
+            <div class="image1"></div>
+            <div class="image2"></div>
+            <div class="image3"></div>
+            <div class="image4"></div>
+            <div class="image5"></div>
+          </div>
+        </div>
             <p>
               ようこそ、ながのCAKEへ！</br>
               このサイトは、ケーキ販売のECサイトになります。</br>
               会員でない方も商品の閲覧はできますが、</br>
               購入には会員登録が必要になります。</br>
             </p>
-          </div>
-        </div>
+        <!--  </div>-->
+        <!--</div>-->
     </div>
   </div>
+
   
+  <h3><strong>新着商品</strong></h3>
   <div class="row">
-    <div class="col-md-12 mx-auto">
-      <h3><strong>新着商品</strong></h3>
+    <% @products.first(4).each do |product| %>
       <div class="card-group">
-        <% @products.first(4).each do |product| %>
-          <div class="card ml-2 mr-2">
-            <%= link_to product_path(product.id) do %>
-              <%= attachment_image_tag product,:image, size:"255x210", fallback: "no_image.jpg" %>
-            <% end %>
+          <div class ="card card border-light mb-3 ml-2 mr-2">
+            <div class ="card-img-top">
+              <%= link_to product_path(product.id) do %>
+                <%= attachment_image_tag product,:image, size:"261x185", fallback: "no_image.jpg" %>
+              <% end %>
+            </div>
+
             <div class="card-body">
               <h5 class="card-title"><%= product.name %></h5>
               <p class="card-text">
-                <% tax_in = product.price * 1.10 %>
-                ¥ <%= tax_in.round %>
+                <% tax_in = product.add_tax_price %>
+                  ¥<%= tax_in.to_s(:delimited) %>
               </p>
             </div>
           </div>
-        <% end %>
       </div>
-    </div>
+    <% end %>
   </div>
-  
+
+
 
   <div>
     <%= link_to "全ての商品を見る>", products_path, class: "btn-link " %>
