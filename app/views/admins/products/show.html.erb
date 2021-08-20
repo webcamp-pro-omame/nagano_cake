@@ -24,7 +24,13 @@
   </tr>
   <tr>
 	  <th>販売ステータス</th>
-	  <th><%= @product.status %></th>
+	  <th>
+        <% if @product.status == true %>
+          <p class="text-success">販売中</p>
+        <% else %>
+          <p class="text-secondary">販売停止中</p>
+        <% end %>
+    </th>
   </tr>
   <tr>
     <th><%= link_to "編集する" , edit_admins_product_path(@product.id), class: 'btn btn-success' %></th>

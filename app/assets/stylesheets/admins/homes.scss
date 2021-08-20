@@ -14,7 +14,7 @@
 .comment {
   font-family: 'Noto Serif JP', serif;
   font-size: 50px;
-  margin: 0px 0px 20px 150px;
+  margin: 10px 0px 0px 0px;
 }
 
 .space{
@@ -28,14 +28,16 @@
 
 .fixed {
   position: fixed;
-  top: 100px;
-  left: 1000px;
+  top: 40%;
+  left: auto;
+  right: 10%;
+  bottom: 0;
+  overflow-y: auto;
 }
 
 .box1 {
   background-color: #f2f2f2;
   position: relative;
-  margin-top: 250px;
   width: 300px;
   height: 20rem;
   border-radius: 40px

@@ -23,7 +23,13 @@
         <td><%= link_to product.name, admins_product_path(product.id) %></td>
         <td><%= product.price %></td>
         <td><%= product.genre.name %></td>
-        <td><%= product.status %></td>
+        <td>
+        <% if product.status == true %>
+          <p class="text-success">販売中</p>
+        <% else %>
+          <p class="text-secondary">販売停止中</p>
+        <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>
