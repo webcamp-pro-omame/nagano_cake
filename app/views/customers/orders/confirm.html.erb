@@ -3,26 +3,28 @@
     <div class="row">
       <div class="col-12">
           <h2 class="mb-5 login-color col-3 text-center ml-5">注文情報確認</h2>
-          
+         
           <div class="row">
             <table class="table table-bordered border-dark col-7">
             <thead>
               <tr>
-                  <th class="table-active col-3">商品名</th>
+                  <th class="table-active">商品名</th>
                   <th class="table-active">単価(税込)</th>
                   <th class="table-active">数量</th>
                   <th class="table-active">小計</th>
               </tr>
             </thead>
             <tbody>
-              
+              <% @sum = 0 %>
+              <% @cart_products.each do |cart_product| %>
               <tr>
-                  <td>ここは</td>
-                  <td>カートプロダクト</td>
-                  <td>できてからだね</td>
-                  <td>ですね</td>
+                  <td><%= cart_product.product.name  %></td>
+                  <td><%= cart_product.product.add_tax_price %></td>
+                  <td><%= cart_product.amount %></td>
+                  <td><%= cart_product.product.add_tax_price * cart_product.amount %></td>
               </tr>
-              
+              <% @sum += cart_product.product.add_tax_price * cart_product.amount %>
+              <% end %>
             </tbody>
            </table>
           
@@ -33,11 +35,11 @@
               </tr>
               <tr>
                   <th class="table-active">商品合計</th>
-                  <td>金額</td>
+                  <td><%= @sum %></td>
               </tr>
               <tr>
                   <th class="table-active">請求金額</th>
-                  <td>ここも</td>
+                  <td><%= @sum +800 %></td>
               </tr>
            </table>
         </div>
@@ -53,7 +55,14 @@
               <h5 class="font-weight-bold">お届け先　　</h5>
               <span>〒</span><%= @order.postcode %>　<%= @order.address %><br><%= @order.name %>
               <br>
-          </div>  
+          </div>
+        <%= form_with model:@order, url: orders_path, local:true do |f| %>
+        
+          <div class="row justify-content-center">
+            <%= f.submit "注文を確定する", class: "btn btn-success col-3" %>
+          </div>
+          
+        <% end %>
       </div>
     </div>
   </div>
