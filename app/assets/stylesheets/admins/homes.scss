@@ -1,3 +1,49 @@
 // Place all the styles related to the admins/homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "bootstrap";
+
+.admin-main-visual {
+  background-image: url("/images/julio-deras.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: auto;
+  height: 500pX;
+  border-radius: 40px
+}
+.comment {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 50px;
+  margin: 10px 0px 0px 0px;
+}
+
+.space{
+  margin: 100px;
+}
+
+.owner-name {
+  font-size: 15px;
+  padding-top: 10px;
+}
+
+.fixed {
+  position: fixed;
+  top: 40%;
+  left: auto;
+  right: 10%;
+  bottom: 0;
+  overflow-y: auto;
+}
+
+.box1 {
+  background-color: #f2f2f2;
+  position: relative;
+  width: 300px;
+  height: 20rem;
+  border-radius: 40px
+}
+
+.form {
+   position: absolute;
+   padding: 55px;
+}
