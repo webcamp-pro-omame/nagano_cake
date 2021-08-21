@@ -1,5 +1,9 @@
-<h2>ジャンル編集</h2>
-<%= form_with model:@genre, url:"/admins/genres/#{@genre.id}", local:true do |f| %>
-  <%= f.text_field :name %>
-  <%= f.submit "変更を保存", class: "btn btn-success" %>
-<% end %>
+<div class="edit-bar d-flex align-items-center justify-content-center">
+  <div>
+    <%= form_with model:@genre, url:"/admins/genres/#{@genre.id}", local:true do |f| %>
+    <%= f.text_field :name %>
+    <%= f.submit "変更を保存", class: "btn btn-dark" %>
+    <% end %>
+  </div>
+</div>
+
