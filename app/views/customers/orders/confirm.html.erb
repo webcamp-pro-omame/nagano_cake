@@ -30,16 +30,16 @@
 
            <table class="table table-bordered border-dark col-2 mb-3 ml-5 h-75">
               <tr>
-                  <th class="table-active table-color">送料</th>
-                  <td>800</td>
+                  <th class="table-active">送料</th>
+                  <td><%= @order.shipping_fee %></td>
               </tr>
               <tr>
                   <th class="table-active table-color">商品合計</th>
                   <td><%= @sum %></td>
               </tr>
               <tr>
-                  <th class="table-active table-color">請求金額</th>
-                  <td><%= @sum +800 %></td>
+                  <th class="table-active">請求金額</th>
+                  <td><%= @order.shipping_fee + @sum %></td>
               </tr>
            </table>
         </div>
@@ -57,7 +57,15 @@
               <br>
           </div>
         <%= form_with model:@order, url: orders_path, local:true do |f| %>
-
+        
+        
+        <%= f.hidden_field :payment_method %>
+        <%= f.hidden_field :postcode %>
+        <%= f.hidden_field :address %>
+        <%= f.hidden_field :name %>
+        <%= f.hidden_field :shipping_fee %>
+        <%= f.hidden_field :bill, value: @sum + @order.shipping_fee %>
+        
           <div class="row justify-content-center">
             <%= f.submit "注文を確定する", class: "btn btn-primary col-3" %>
           </div>
