@@ -1,7 +1,7 @@
  <div class="container">
    <div class="row">
       <div class="col">
-        <h4 class="mb-4 cart-color col-3 text-center">ショッピングカート</h4>
+        <h4 class="mb-4 text-color col-3 text-center">ショッピングカート</h4>
         <div class="text-right mb-1">
           <%= link_to 'カートを空にする', cart_products_destroy_all_path, method: :delete, class:'btn btn-primary button' %>
         </div>
@@ -11,7 +11,7 @@
       <div class="col">
           <table class="table table-bordered">
             <thead>
-              <tr class="table-tr">
+              <tr class="table-color">
                 <th>商品名</th>
                 <th>単価(税込)</th>
                 <th>数量</th>
@@ -58,7 +58,7 @@
        <%= link_to '買い物を続ける', root_path, class:'btn btn-primary' %>
        <table align="right" class="table table-bordered col-2">
         <tr>
-          <td>合計金額</td>
+          <td class="table-color">合計金額</td>
           <td>
             ¥<%= @sum.to_s(:delimited) %>
           </td>
