@@ -21,7 +21,28 @@
   box-sizing: border-box;
 }
 
-.login-color {
-    background:rgba(59, 58, 47, 0.1)
+.navbar {
+  background-color:#f3f0ec;
 }
 
+.login-color {
+    background:#f3f0ec
+}
+
+.btn-primary {
+    color: #362222 !important;
+    background-color: #E6DDC6 !important;
+    border-color: #E6DDC6!important; /*set the color you want here*/
+}
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
+    color: #362222!important;
+    background-color: #C2B8A3!important;
+    border-color: #C2B8A3!important; /*set the color you want here*/
+}
+
+
+footer {
+  width: 100%;
+  height: 60px;
+  background-color: #f3f0ec;
+}

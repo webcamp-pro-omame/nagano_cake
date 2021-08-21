@@ -3,15 +3,15 @@
       <div class="col">
         <h4 class="mb-4 cart-color col-3 text-center">ショッピングカート</h4>
         <div class="text-right mb-1">
-          <%= link_to 'カートを空にする', cart_products_destroy_all_path, method: :delete, class:'btn btn-danger' %>
+          <%= link_to 'カートを空にする', cart_products_destroy_all_path, method: :delete, class:'btn btn-primary button' %>
         </div>
       </div>
     </div>
     <div class="row">
       <div class="col">
           <table class="table table-bordered">
-            <thead class="table-light">
-              <tr>
+            <thead>
+              <tr class="table-tr">
                 <th>商品名</th>
                 <th>単価(税込)</th>
                 <th>数量</th>
@@ -35,7 +35,7 @@
                   <td>
                     <%= form_with model:cart_product, local:true do |f|%>
                       <%= f.select :amount, options_for_select((1..10).to_a, selected:cart_product.amount) %>
-                      <%= f.submit '変更', class:"btn btn-success" %>
+                      <%= f.submit '変更', class:"btn btn-primary" %>
                     <% end %>
                   </td>
                   <td>
@@ -43,7 +43,7 @@
                     <%= @subtotal.to_s(:delimited) %>
                   </td>
                   <td>
-                    <%= link_to "削除する", cart_product_path(cart_product), method: :delete, class:"btn btn-sm btn-danger" %>
+                    <%= link_to "削除する", cart_product_path(cart_product), method: :delete, class:"btn btn-sm btn-primary" %>
                   </td>
                 </tr>
                 <% @sum += @subtotal %>
@@ -69,7 +69,7 @@
 
    <div class = "row">
      <div class = "col text-center">
-       <%= link_to '情報入力に進む', orders_new_path, class:'btn btn-success' %>
+       <%= link_to '情報入力に進む', orders_new_path, class:'btn btn-primary ' %>
      </div>
    </div>
 
