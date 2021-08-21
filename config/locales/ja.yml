@@ -29,9 +29,6 @@ ja:
     updated_at: 更新日時
 
   ja:
-    time:
-      formats:
-        dafault: "%Y/%m/%d %H:%M:%S"
     views:
       pagination:
         first:  <i class= "fas fa-angle-double-left"></i>
@@ -39,17 +36,3 @@ ja:
         previous:  <i class= "fas fa-angle-left"></i>
         next:  <i class= "fas fa-angle-right"></i>
         truncate: "..."
-    enums:
-      order:
-        status:
-          waiting: "入金待ち"
-          paid_up: "入金確認"
-          making: "製作中"
-          preparing: "発送準備中"
-          shipped: "発送済み"
-      order_product:
-        status:
-          cannot_be_started: "着手不可"
-          waiting: "製作待ち"
-          making: "製作中"
-          completed: "製作完了"
