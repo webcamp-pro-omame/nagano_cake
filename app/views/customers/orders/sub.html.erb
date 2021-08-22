@@ -1,3 +1,26 @@
+@orders = current_customer.orders.page(params[:page]).per(8)
+<% @orders.each do |order| %>
+<tr>
+    <td><%= order.created_at.strftime('%Y/%m/%d') %></td>
+    <td><%= order.postcode %><br><%= order.address %><br><%= order.name %></td>
+    <td>
+        <% order.cart_products.each do |cart_product| %>
+        <%= cart_product.product.name %>
+        <% end %>
+    </td>
+    <td><%= order.bill %>円</td>
+    <td><%= order.status %></td>
+    <td><%= link_to "表示する", order_path(order) ,class: "btn btn-primary btn-sm" %></td>
+</tr>
+<% end %>
+
+
+
+
+---------------------------------
+@order = Order.find(params[:id])
+@order_products = @order.order_products
+
 <body>
   <div class="container">
     <div class="row">
@@ -29,15 +52,15 @@
           <table class="table table-bordered border-dark col-3 ml-3 h-75">
                   <tr>
                       <th class="table-active">表品合計</th>
-                      <th><%= @order.bill - @order.shipping_fee %>円</th>
+                      <th><%= @order.bill - @order.shipping_fee %></th>
                   </tr>
                   <tr>
                     <th class="table-active">配送料</th>
-                    <th><%= @order.shipping_fee %>円</th>
+                    <th><%= @order.shipping_fee %></th>
                   </tr>
                   <tr>
                     <th class="table-active">ご請求額</th>
-                    <th><%= @order.bill %>円</th>
+                    <th><%= @order.bill %></th>
                   </tr>
           </table>
           </div>
@@ -52,9 +75,9 @@
               <% @order_products.each do |order_product| %>
               <tr>
                   <th><%= order_product.product.name %></th>
-                  <th><%= order_product.product.add_tax_price %>円</th>
-                  <th><%= order_product.amount %>個</th>
-                  <th><%= order_product.product.add_tax_price * order_product.amount %>円</th>
+                  <th><%= order_product.product.add_tax_price %></th>
+                  <th><%= order_product.amount %></th>
+                  <th><%= order_product.product.add_tax_price * order_product.amount %></th>
               </tr>
               <% end %>
           </table>

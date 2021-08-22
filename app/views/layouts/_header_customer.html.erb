@@ -1,5 +1,8 @@
 <ul class="navbar-nav ml-auto">
   <% if customer_signed_in? %>
+    <li class: "navbar-text text-dark ">
+      ようこそ、<%= current_customer.last_name %>さん！
+    </li>
     <li>
       <%= link_to "マイページ", customers_path, class: "nav-link text-dark" %>
     </li>
@@ -12,6 +15,10 @@
     <li>
       <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "nav-link text-dark" %>
     </li>
+    <form class="d-flex">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-primary" type="submit">Search</button>
+    </form>
   <% else %>
     <li>
       <%= link_to "About", about_path, class: "nav-link text-dark" %>
