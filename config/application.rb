@@ -11,6 +11,8 @@ Bundler.require(*Rails.groups)
 module NaganoCake
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
+    config.action_view.field_error_proc = Proc.new { |html_tag, instance| html_tag }
+    
     config.load_defaults 5.2
 
     # Settings in config/environments/* take precedence over those specified here.
@@ -23,7 +25,7 @@ module NaganoCake
     
     
      #　#　以下の記述を追記する(設定必須)
-    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.yml').to_s]
     
     
     

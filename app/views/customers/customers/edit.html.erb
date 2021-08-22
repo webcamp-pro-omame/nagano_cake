@@ -4,6 +4,9 @@
       <h2 class="mb-5 login-color col-3 text-center">会員情報編集</h2>
 
         <%= form_with model:@customer, url: customers_path, method: :patch, local:true do |f| %>
+        <%= render 'layouts/error_message', model: f.object %>
+          
+          
           
           <div class="field mb-1">
             <%= f.label :"名前　　　　　　　　　　", class: 'col-3' %>

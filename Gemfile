@@ -71,3 +71,6 @@ gem "kaminari"
 
 #エラーメッセージを日本語に変換してくれるgem
 gem 'rails-i18n', '~> 5.1' 
+
+gem 'payjp'
+gem "dotenv-rails"
