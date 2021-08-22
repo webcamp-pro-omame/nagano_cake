@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <h4 class="mb-5 col-4 text-center text-white bg-dark rounded-pill"><%= "#{@customer.last_name}""#{@customer.first_name}" %>さんの会員情報編集</h4>
+      <h4 class="mb-5 col-4 pt-2 pb-2 text-center text-white bg-dark rounded-pill"><%= "#{@customer.last_name}""#{@customer.first_name}" %>さんの会員情報編集</h4>
       <div class="admin-customer-edit col-10 p-3">
         <%= form_with model:@customer, url: admins_customer_path, local: true do |f| %>
         <table class="table table-borderless">
