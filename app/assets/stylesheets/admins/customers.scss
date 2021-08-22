@@ -29,6 +29,7 @@
 
 .pagination>li>a:hover {
   color: black;
+  background-color: #f3f0ec !important;
 }
 
 .admin-customer-show {
@@ -40,3 +41,8 @@
   background-color: #343A40;
   color: white;
 }
+
+.admin-customer-table tr:hover td {
+	background-color: #f3f0ec !important;
+}
+
