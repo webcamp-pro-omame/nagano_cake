@@ -1,56 +1,58 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <h4 class="mb-5 col-4 login-color text-center"><%= "#{@customer.last_name}""#{@customer.first_name}" %>さんの会員情報編集</h4>
-      <%= form_with model:@customer, url: admins_customer_path, local: true do |f| %>
-      <table class="table table-borderless">
-        <tbody>
-          <tr>
-            <th>会員ID</th>
-            <td><%= @customer.id %></td>
-          </tr>
-          <tr>
-            <th>氏名</th>
-            <td><%= f.text_field :last_name %> <%= f.text_field :first_name %></td>
-          </tr>
-          <tr>
-            <th>フリガナ</th>
-            <td><%= f.text_field :last_name_kana %> <%= f.text_field :first_name_kana %></td>
-          </tr>
-          <tr>
-            <th>郵便番号</th>
-            <td><%= f.text_field :postcode %></td>
-          </tr>
-          <tr>
-            <th>住所</th>
-            <td><%= f.text_field :address, size: 70 %></td>
-          </tr>
-          <tr>
-            <th>電話番号</th>
-            <td><%= f.text_field :phone_number %></td>
-          </tr>
-          <tr>
-            <th>メールアドレス</th>
-            <td><%= f.text_field :email %></td>
-          </tr>
-          <tr>
-            <th>会員ステータス</th>
-            <td>
-              <%= f.radio_button :is_valid, :true %>
-              <%= f.label :is_valid, "有効", value: true, class: "mr-3" %>
-              <%= f.radio_button :is_valid, :false %>
-              <%= f.label :is_valid, "退会", value: false %>
-            </td>
-          </tr>
-          <tr>
-            <th></th>
-            <td>
-              <%= f.submit "変更を保存", class: "btn btn-success" %>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <h4 class="mb-5 col-4 pt-2 pb-2 text-center text-white bg-dark rounded-pill"><%= "#{@customer.last_name}""#{@customer.first_name}" %>さんの会員情報編集</h4>
+      <div class="admin-customer-edit col-10 p-3">
+        <%= form_with model:@customer, url: admins_customer_path, local: true do |f| %>
+        <table class="table table-borderless">
+          <tbody>
+            <tr>
+              <th>会員ID</th>
+              <td><%= @customer.id %></td>
+            </tr>
+            <tr>
+              <th>氏名</th>
+              <td><%= f.text_field :last_name, class: "admin-customer-editform pt-1 pb-1 rounded-pill" %> <%= f.text_field :first_name, class: "admin-customer-editform pt-1 pb-1 rounded-pill" %></td>
+            </tr>
+            <tr>
+              <th>フリガナ</th>
+              <td><%= f.text_field :last_name_kana, class: "admin-customer-editform pt-1 pb-1 rounded-pill" %> <%= f.text_field :first_name_kana, class: "admin-customer-editform pt-1 pb-1 rounded-pill" %></td>
+            </tr>
+            <tr>
+              <th>郵便番号</th>
+              <td><%= f.text_field :postcode, class: "admin-customer-editform pt-1 pb-1 rounded-pill" %></td>
+            </tr>
+            <tr>
+              <th>住所</th>
+              <td><%= f.text_field :address, size: 70, class: "admin-customer-editform pt-1 pb-1 rounded-pill" %></td>
+            </tr>
+            <tr>
+              <th>電話番号</th>
+              <td><%= f.text_field :phone_number, class: "admin-customer-editform pt-1 pb-1 rounded-pill" %></td>
+            </tr>
+            <tr>
+              <th>メールアドレス</th>
+              <td><%= f.text_field :email,  size: 50, class: "admin-customer-editform pt-1 pb-1 rounded-pill" %></td>
+            </tr>
+            <tr>
+              <th>会員ステータス</th>
+              <td>
+                <%= f.radio_button :is_valid, :true %>
+                <%= f.label :is_valid, "有効", value: true, class: "mr-3" %>
+                <%= f.radio_button :is_valid, :false %>
+                <%= f.label :is_valid, "退会", value: false %>
+              </td>
+            </tr>
+            <tr>
+              <th></th>
+              <td>
+                <%= f.submit "変更を保存", class: "btn btn-dark" %>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       <% end %>
+      </div>
     </div>
   </div>
 </div>
