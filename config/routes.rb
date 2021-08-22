@@ -33,6 +33,7 @@ Rails.application.routes.draw do
 
   namespace :admins do
     root to: "homes#top"
+    get "search" => 'searches#search'
     resources :products, only: [:index, :new, :create, :show, :edit, :update]
     resources :genres, only: [:index, :create, :edit, :update]
     resources :customers, only: [:index, :show, :edit, :update]
