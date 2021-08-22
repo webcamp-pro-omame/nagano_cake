@@ -17,7 +17,7 @@
 
   <h3><strong>新着商品</strong></h3>
   <div class="row">
-    <% @products.first(4).each do |product| %>
+    <% @products.last(4).reverse.each do |product| %>
       <div class="card-group">
           <div class ="card card border-light mb-3 ml-2 mr-2">
             <div class ="card-img-top">

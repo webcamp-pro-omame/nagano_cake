@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "bootstrap";
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
 
 .table_border_radius {
   overflow: hidden;
@@ -29,5 +31,21 @@
 
 .pagination>li>a:hover {
   color: black;
+  background-color: #f3f0ec !important;
+}
+
+.admin-customer-show {
+  background-color: #f3f0ec;
+  border-radius: 15px;
+}
+
+.admin-customer-editform {
+  border: none;
+  background-color: #f3f0ec;
+  padding: 2px;
+}
+
+.admin-customer-table tr:hover td {
+	background-color: #f3f0ec !important;
 }
 
