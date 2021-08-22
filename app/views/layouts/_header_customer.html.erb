@@ -15,10 +15,12 @@
     <li>
       <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "nav-link text-dark" %>
     </li>
-    <form class="d-flex">
-      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-primary" type="submit">Search</button>
-    </form>
+    <div class="search-form">
+      <%= form_with url: search_path, method: :get, local: true do |f| %>
+        <%= f.text_field :keyword, value: @keyword %>
+        <%= f.submit "Search", class: "btn btn-primary" %>
+      <% end %>
+    </div>
   <% else %>
     <li>
       <%= link_to "About", about_path, class: "nav-link text-dark" %>
