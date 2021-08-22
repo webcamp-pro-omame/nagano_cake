@@ -1,10 +1,7 @@
-
-
-
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <h2 class="mb-5 login-color col-3 text-center">新規会員登録</h2>
+      <h4 class="mb-5 text-color col-3 text-center">新規会員登録</h4>
 
         <%= form_for(resource, as: resource_name, url: customer_registration_path) do |f| %>
           　　<div><%= render 'layouts/error_message', model: f.object %></div>
@@ -61,7 +58,7 @@
         
           <div class="actions">
             <%= f.label :"　", class: 'col-3' %>
-            <%= f.submit "新規登録", class: 'btn btn-success col-2' %>
+            <%= f.submit "新規登録", class: 'btn btn-primary col-2' %>
           </div>
           </div>
         <% end %>
