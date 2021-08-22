@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "bootstrap";
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
 
 .table_border_radius {
   overflow: hidden;
@@ -33,7 +35,8 @@
 }
 
 .admin-customer-show {
-  background-color: #f2f2f2;
+  background-color: #f3f0ec;
+  border-radius: 15px;
 }
 
 .admin-customer-editform {
