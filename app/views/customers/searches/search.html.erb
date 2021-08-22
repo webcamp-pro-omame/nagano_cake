@@ -1,14 +1,14 @@
 <div class="container">
   <div class="row">
     <div class="col md-12">
-      <h3>商品一覧</h3>(全<%= @products.count %>件)
+      <h3>商品一覧</h3>(全<%= @product.count %>件)
     </div>
   </div>
 </div>
 
 <div class="container">
   <div class="row row-cols-1 row-cols-md-4 g-4">
-    <% @products.each do |product| %>
+    <% @product.each do |product| %>
       <div class="col-md-3">
         <div class="card mb-3">
           <%= link_to product_path(product.id) do %>
@@ -28,5 +28,3 @@
     <% end %>
   </div>
 </div>
-
-<%= paginate @products %>

@@ -8,14 +8,15 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   scope module: :customers do
     root to: "homes#top"
+    get '/search' => 'searches#search'
     get "about" => "homes#about"
     get "orders/new" => "orders#new"
     post "orders/confirm" => "orders#confirm"
     get "orders/thanks" => "orders#thanks"
     resources :orders, only: [:index, :show, :create]
     resources :products, only: [:show, :index]
-    resources :cart_products, only: [:index, :update, :destroy, :create]
     delete "cart_products/destroy_all" => "cart_products#destroy_all"
+    resources :cart_products, only: [:index, :update, :destroy, :create]
 
     resource "customers", only: [:show, :edit, :update]
 
