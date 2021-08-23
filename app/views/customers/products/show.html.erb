@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <%= attachment_image_tag @product,:image, size:"300x200", fallback: "no_image.jpg" %>
+    </div>
+    <div class="col-md-8">
+      <h4><strong><%= @product.name %></strong></h4>
+      <p><%= @product.detail%></p>
+      <h6>
+        <% tax_in = @product.add_tax_price %>
+          ¥<%= tax_in.to_s(:delimited) %>(税込)
+      </h6>
+    </div>
+  </div>
+
+
+  <div class = "row">
+    <div class="col-md-3 ml-auto">
+      <% if customer_signed_in? %>
+        <% if @product.status == true %>
+          <%= form_with model:@cart_product, url:cart_products_path, method: :post, local:true do |f|%>
+            <%= f.hidden_field :product_id, value: @product.id %>
+            <%= f.select :amount, options_for_select((1..10).to_a), include_blank: "個数選択" %>
+            <%= f.submit 'カートに入れる', class:"btn btn-primary" %>
+          <% end %>
+        <% else %>
+          <p>在庫切れ</p>
+        <% end %>
+      <% else %>
+        <%= link_to "ログイン", new_customer_session_path %>してから購入画面にお進みください。
+      <% end %>
+    </div>
+  </div>
+</div>

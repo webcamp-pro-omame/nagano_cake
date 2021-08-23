@@ -1,0 +1,51 @@
+// Place all the styles related to the admins/customers controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "bootstrap";
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
+
+.table_border_radius {
+  overflow: hidden;
+}
+
+.pagination {
+  justify-content: center;
+}
+
+.pagination>li {
+  border-radius: 15px;
+}
+
+.pagination>li>a {
+  border: none;
+  color: black;
+  border-radius: 15px !important;
+}
+
+.pagination>.active>a {
+  background-color: #343A40 !important;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.pagination>li>a:hover {
+  color: black;
+  background-color: #f3f0ec !important;
+}
+
+.admin-customer-show {
+  background-color: #f3f0ec;
+  border-radius: 15px;
+}
+
+.admin-customer-editform {
+  border: none;
+  background-color: #f3f0ec;
+  padding: 2px;
+}
+
+.admin-customer-table tr:hover td {
+	background-color: #f3f0ec !important;
+}
+

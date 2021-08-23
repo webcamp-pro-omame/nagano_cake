@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="row">
+    <%= flash[:alert] %>
+    <div class="col-md-12 mx-auto mb-4">
+        <div class="main-visual">
+          <div class="main-visual-text">
+            <p>
+              ようこそ、ながのCAKEへ！</br>
+              このサイトは、ケーキ販売のECサイトになります。</br>
+              会員でない方も商品の閲覧はできますが、</br>
+              購入には会員登録が必要になります。</br>
+            </p>
+          </div>
+        </div>
+    </div>
+  </div>
+
+  <h3><strong>新着商品</strong></h3>
+  <div class="row">
+    <% @products.first(4).each do |product| %>
+      <div class="card-group">
+          <div class ="card card border-light mb-3 ml-2 mr-2">
+            <div class ="card-img-top">
+              <%= link_to product_path(product.id) do %>
+                <%= attachment_image_tag product,:image, size:"261x185", fallback: "no_image.jpg" %>
+              <% end %>
+            </div>
+
+            <div class="card-body">
+              <h5 class="card-title"><%= product.name %></h5>
+              <p class="card-text">
+                <% tax_in = product.add_tax_price %>
+                  ¥<%= tax_in.to_s(:delimited) %>
+              </p>
+            </div>
+          </div>
+      </div>
+    <% end %>
+  </div>
+  <div>
+    <%= link_to "全ての商品を見る>", products_path, class: "btn-primary" %>
+  </div>
+
+</div>

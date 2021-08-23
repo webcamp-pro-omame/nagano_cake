@@ -1,0 +1,19 @@
+<div class="edit-bar d-flex align-items-center justify-content-center">
+  <div>
+    <%= form_with model:@genre, url:"/admins/genres/#{@genre.id}", local:true do |f| %>
+    <%= f.text_field :name %>
+    <%= f.submit "変更を保存", class: "btn btn-dark" %>
+    <% end %>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4"></div>
+    <div class="col-lg-8">
+      <div class="young-owner-visual"></div>
+      <div class="owner-name">幼い頃のオーナーパティシエ ｜ 早起きが得意だった</div>
+    </div>
+  </div>
+</div>
+

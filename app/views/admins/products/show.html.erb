@@ -1,0 +1,60 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@300&display=swap" rel="stylesheet">
+
+<div class="guide-plate d-flex align-items-center justify-content-center">
+  <div class=admin-page-title>商品詳細</div>
+</div>
+
+<div class="admin-products-cover1 d-flex align-items-center justify-content-center">
+  <div class="admin-products-cover2 d-flex align-items-center justify-content-center">
+    <div class="overflow-auto" style="width:100%; height:500px">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-1"></div>
+          <div class="col-lg-3">
+            <%= attachment_image_tag(@product, :image, :fill, 300, 300) %>
+          </div>
+          <div class="col-lg-1"></div>
+          <div class="col-lg-7">
+            <table class='table table-borderless'>
+              <tr>
+            	  <th>商品名</th>
+            	  <td><%= @product.name %></td>
+              </tr>
+              <tr>
+            	  <th>商品説明</th>
+            	  <th><%= @product.detail %></th>
+              </tr>
+              <tr>
+            	  <th>ジャンル</th>
+            	  <td><%= @product.genre.name %></td>
+              </tr>
+              <tr>
+            	  <th>価格</th>
+            	  <th>
+            	    <% tax_in = @product.price * 1.10 %>
+            	    ¥ <%= tax_in.round %>
+            	    (税抜<%= @product.price %>)
+            	  </th>
+              </tr>
+              <tr>
+            	  <th>販売ステータス</th>
+            	  <th>
+                    <% if @product.status == true %>
+                      <p class="text-success">販売中</p>
+                    <% else %>
+                      <p class="text-secondary">販売停止中</p>
+                    <% end %>
+                </th>
+              </tr>
+              <tr>
+                <th><%= link_to "edit" , edit_admins_product_path(@product.id), class: 'btn btn-dark' %></th>
+              </tr>
+            </table>
+          </div>
+　　　  </div>
+　　　</div>
+    </div>
+  </div>
+</div>

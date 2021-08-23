@@ -1,0 +1,37 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@300&display=swap" rel="stylesheet">
+
+<div class="guide-plate d-flex align-items-center justify-content-center">
+  <div class=admin-page-title>商品新規登録</div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-5"></div>
+    <div class="col-lg-7">
+      <div class="box3 d-flex align-items-center justify-content-center">
+        <div class="overflow-auto" style="width:70%; height:70%">
+          <%= form_with model:@product, url: admins_products_path, local:true do |f| %>
+            <h4>商品画像</h4>
+            <%= f.attachment_field :image %>
+            <h4>商品名</h4>
+            <%= f.text_field :name %>
+            <h4>商品説明</h4>
+            <%= f.text_area :detail %>
+            <h4>ジャンル</h4>
+            <%= f.collection_select(:genre, @genres, :id, :name, {prompt: "選択してください"}) %>
+            <h4>税抜価格</h4>
+            <%= f.text_field :price %>円
+            <h4>販売ステータス</h4>
+              <%= f.radio_button :status, :true %>
+              <%= f.label :status, "販売中", value: true %>
+              <%= f.radio_button :status, :false %>
+              <%= f.label :status, "販売停止中", value: false %>
+              <%= f.submit '新規登録', class: 'btn btn-dark' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

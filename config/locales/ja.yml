@@ -1,0 +1,37 @@
+
+ja:
+  activerecord:
+    # モデル名
+    models:
+      shipping_address:
+      customer:
+    # モデルごとの属性
+    attributes:
+      shipping_address:
+        postcode: 郵便番号 #変換後の日本語を記入
+        address: 住所 #変換後の日本語を記入
+        name: 宛名 #変換後の日本語を記入
+
+      customer:
+        last_name: 「入力する時ここの欄チェックした?笑」名前の(姓)
+        first_name: ここ空白はありえないって〜、名前の(名)
+        last_name_kana: 苗字のカナ
+        first_name_kana: 下の名前のカナ
+        postcode: 郵便番号
+        address: 決して悪用はしないので住所
+        phone_number: あなた美しいですね、よければ携帯番号
+        password: 忘れてますよ、パスワード
+        email: メールアドレス
+
+  # 全モデル共通の属性
+  attributes:
+    created_at: 作成日時
+    updated_at: 更新日時
+
+  views:
+    pagination:
+      first:  <i class= "fas fa-angle-double-left"></i>
+      last:  <i class= "fas fa-angle-double-right"></i>
+      previous:  <i class= "fas fa-angle-left"></i>
+      next:  <i class= "fas fa-angle-right"></i>
+      truncate: "..."
