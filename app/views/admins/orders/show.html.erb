@@ -7,7 +7,7 @@
       <tbody>
         <tr>
           <th>購入者</th>
-          <td><%= link_to "#{@order.customer.last_name} #{@order.customer.first_name}", admins_customer_path(@order.id), class: "text-dark border-bottom border-dark" %></td>
+          <td><%= link_to "#{@order.customer.last_name} #{@order.customer.first_name}", admins_customer_path(@order.customer.id), class: "text-dark border-bottom border-dark" %></td>
         </tr>
         <tr>
           <th>注文日</th>
