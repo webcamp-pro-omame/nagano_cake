@@ -55,24 +55,91 @@ footer {
   background-color: #f3f0ec;
 }
 
+.carousel {
+  height: 600px;
+}
+.carousel-inner, .item {
+  height: 100%;
+  position: relative;
+}
+.carousel .image {
+  width: 100%;
+  height: 100% !important;
+  background-size: contain;
+  
+  
+  
+}
+.cover-text {
+  position: absolute;
+  padding: 50px;
+  font-size: 20px;
+  color: white;
+  z-index: 1; /* ADD */
+}
+
+// .stop {
+//   height: 500px;
+// }
+  
+
+// .image-1 {
+//   height: 500px;
+//   background-image: url(/images/cup_cake.jpg);
+//   background-size: cover;
+//   background-position: center;
+// }
+// .image-2 {
+//   background-image: url(/images/makalon.jpg);
+//   background-size: cover;
+// }
+// .image-3 {
+//   background-image: url(/images/store_view.jpg);
+//   background-size: cover;
+// }
+// .image-4 {
+//   background-image: url(/images/good_cakes.jpg);
+//   background-size: cover;
+// }
+
+
+.welcome_cake {
+  font-family: cursive;
+  color: rgba(255, 117, 160,1);
+  margin-top: 20px;
+  font-size: 60px;
+}
+
+.welcome_text {
+  color: rgba(0, 0, 0,0.5);
+}
+
 .main-visual {
   width: 100%;
   height: 300px;
   background-image: url(/images/img1.jpg);
   background-size: cover;
-  object-fit: fill;
-  background-position: bottom center;
+  padding-top: 20px;
+  background-position: center;
+}
+
+.main_back {
+  width: 100%;
+  height: 130px;
+  background-color: rgba(243,240,236,0.7);
+  justfy-content: center;
+  text-align: center;
+  
 }
 
 .main-visual-text {
-  width: 35%;
-  height: 300px;
-  background-color: rgba(243,240,236,0.7);
+  width: 70%;
+  height: 130px;
+  
   text-align: center;
-  padding-top: 105px;
   color: #362222;
   font-weight : bold;
-
+  margin: auto;
 }
 
 .about-image {
@@ -190,5 +257,30 @@ footer {
   background-image: url(/images/product_index_image.png);
   background-size: 250px 150px;
   background-repeat: repeat-x;
+  background-position:  center;
+}
+
+// .top_image1 {
+//   width: 280px;
+//   height: 220px;
+//   background-image: url(/images/top_image1.png);
+//   background-size: 500px 290px;
+//   background-repeat:  no-repeat; 
+//   background-position:  center;
+// }
+// .top_image2 {
+//   width: 350px;
+//   height: 220px;
+//   background-image: url(/images/top_image2.png);
+//   background-size: 430px 260px;
+//   background-repeat:  no-repeat; 
+//   background-position:  center;
+// }
+.top_image6 {
+  width: 280px;
+  height: 220px;
+  background-image: url(/images/top_image6.png);
+  background-size: 450px 240px;
+  background-repeat:  no-repeat; 
   background-position:  center;
 }
