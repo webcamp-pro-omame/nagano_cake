@@ -1,9 +1,13 @@
  <div class="container">
-   <div class="row">
+   <div class="row mb-2">
+      
+        <h4 class="mb-4 text-color col-3 text-center pt-4 rounded-pill">ショッピングカート</h4>
+        <div class="col-8 cart_image offset-1"></div>
+    </div>
+    <div class="row">
       <div class="col">
-        <h4 class="mb-4 text-color col-3 text-center">ショッピングカート</h4>
         <div class="text-right mb-1">
-          <%= link_to 'カートを空にする', cart_products_destroy_all_path, method: :delete, class:'btn btn-primary button' %>
+          <%= link_to 'カートを空にする', cart_products_destroy_all_path, method: :delete, class:'btn btn-primary button mb-1' %>
         </div>
       </div>
     </div>

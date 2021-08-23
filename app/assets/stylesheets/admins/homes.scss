@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "bootstrap";
 
-.admin-main-visual {
+.owner-visual {
   background-image: url("/images/julio-deras.jpg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -12,7 +12,7 @@
   border-radius: 40px
 }
 
-.comment {
+.owner-comment {
   font-family: 'Noto Serif JP', serif;
   font-size: 50px;
   margin: 10px 0px 0px 0px;
@@ -22,12 +22,19 @@
   margin: 100px;
 }
 
-.owner-name {
+.owner-profile {
   font-size: 15px;
   padding-top: 10px;
 }
 
-.fixed {
+.box1 {
+  background-color: #f3f0ec;
+  width: 300px;
+  height: 20rem;
+  border-radius: 40px
+}
+
+.box1-fixed {
   position: fixed;
   top: 40%;
   left: auto;
@@ -36,9 +43,6 @@
   overflow-y: auto;
 }
 
-.box1 {
-  background-color: #f3f0ec;
-  width: 300px;
-  height: 20rem;
-  border-radius: 40px
+.admin-heading {
+  background-color: #f3f0ec !important;
 }

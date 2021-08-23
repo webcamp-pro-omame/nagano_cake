@@ -1,6 +1,8 @@
 class Customers::OrdersController < ApplicationController
+    require "payjp"
+    
     def index
-        @orders = current_customer.orders.page(params[:page]).per(8)
+        @orders = current_customer.orders.page(params[:page]).per(8).reverse
     end
     
     
@@ -22,7 +24,16 @@ class Customers::OrdersController < ApplicationController
         @order.shipping_fee = 800
         
         #@order.bill = current_customer.cart_products.total_price
-        @order.payment_method = params[:order][:payment_method] 
+        @order.payment_method = params[:order][:payment_method]
+        #if @order.payment_method == "クレジットカード"
+         # Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+        #  charge = Payjp::Charge.create(
+         # amount: params[:order][:bill], # 決済する値段
+         # card: params['payjp-token'], # フォームを送信すると作成・送信されてくるトークン
+         # currency: 'jpy'
+         # )
+        #end
+        
         if params[:order][:address_num] == "0"
             @order.postcode = current_customer.postcode
             @order.address = current_customer.address
@@ -48,6 +59,11 @@ class Customers::OrdersController < ApplicationController
         @order = Order.find(params[:id])
         @order_products = @order.order_products
     end
+    
+    
+    
+    
+    
     
     def create
         
