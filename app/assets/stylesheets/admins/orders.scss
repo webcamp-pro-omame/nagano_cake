@@ -1,3 +1,24 @@
 // Place all the styles related to the admins/orders controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "bootstrap";
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
+
+.admin-order-table tr:hover td {
+	background-color: #f3f0ec !important;
+}
+
+.admin-heading h2 {
+  letter-spacing: 3px;
+  border-bottom: solid 8px #f3f0ec;
+}
+
+.admin-heading h3 {
+  letter-spacing: 3px;
+  border-bottom: solid 8px #f3f0ec;
+}
+
+.admin-order-show-table th {
+  border: none;
+}

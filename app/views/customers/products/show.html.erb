@@ -3,7 +3,7 @@
     <div class="col-md-4">
       <%= attachment_image_tag @product,:image, size:"300x200", fallback: "no_image.jpg" %>
     </div>
-    <div class="col-md-8">
+    <div class="col-md-4">
       <h4><strong><%= @product.name %></strong></h4>
       <p><%= @product.detail%></p>
       <h6>
@@ -11,6 +11,8 @@
           ¥<%= tax_in.to_s(:delimited) %>(税込)
       </h6>
     </div>
+    <div class="col-md-4 product_show_image"></div>
+    
   </div>
 
 
