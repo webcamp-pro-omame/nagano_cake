@@ -2,7 +2,7 @@ class Customers::OrdersController < ApplicationController
     require "payjp"
     
     def index
-        @orders = current_customer.orders.page(params[:page]).per(8)
+        @orders = current_customer.orders.page(params[:page]).per(8).reverse
     end
     
     
