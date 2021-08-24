@@ -23,7 +23,7 @@
             </h5>
             <p class="card-text">
               <% tax_in = product.price * 1.10 %>
-                ¥ <%= tax_in.round %>
+                ¥ <%= tax_in.round.to_s(:delimited) %>
             </p>
           </div>
         </div>
