@@ -22,7 +22,7 @@ DMM WEBCAMPのチーム開発課題として架空の洋菓子店のECサイト�
 * font-awesome-sass
 * kaminari
 
-* 「チームお豆」開発メンバー
+## 開発メンバー
 * けいた
 * ゆきの
 * ペニー
